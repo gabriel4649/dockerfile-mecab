@@ -5,7 +5,7 @@ RUN apk add --no-cache build-base git bash curl file openssl sudo
 ENV MECAB_VERSION=0.996
 ADD mecab-$MECAB_VERSION.tar.gz /tmp
 WORKDIR /tmp/mecab-$MECAB_VERSION
-RUN ./configure --enable-utf8-only && \
+RUN ./configure && \
     make && \
     make check && \
     make install
