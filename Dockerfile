@@ -1,11 +1,5 @@
 FROM python:2.7.12-alpine
 
-# timezone
-RUN apk add --no-cache tzdata && \
-    cp /usr/share/zoneinfo/Asia/Tokyo /etc/localtime && \
-    apk del tzdata
-
-# install MeCab
 RUN apk add --no-cache build-base git bash curl file openssl sudo
 
 ENV MECAB_VERSION=0.996
