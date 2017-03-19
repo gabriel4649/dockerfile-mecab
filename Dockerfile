@@ -1,4 +1,4 @@
-FROM python:2.7.12-alpine
+FROM python:3.6-alpine
 
 ADD mecab-0.996.tar.gz /tmp
 WORKDIR /tmp/mecab-0.996
@@ -8,7 +8,7 @@ RUN apk add --no-cache build-base && \
     make check && \
     make install
 
-ENV NEOLODG_VERSION=0.0.5
+ENV NEOLODG_VERSION=master
 RUN apk add --no-cache git bash curl file openssl sudo && \
     curl -o /tmp/mecab-ipadic-neologd-$NEOLODG_VERSION.tar.gz "https://codeload.github.com/neologd/mecab-ipadic-neologd/tar.gz/v$NEOLODG_VERSION" && \
     tar xvfz /tmp/mecab-ipadic-neologd-$NEOLODG_VERSION.tar.gz -C /tmp
